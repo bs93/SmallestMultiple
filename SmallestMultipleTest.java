@@ -32,4 +32,29 @@ public class SmallestMultipleTest {
         short result = SmallestMultiple.highestPrime(maxNum);
         assertEquals(expResult, result);
     }    
+
+    /**
+     * Test of isPrime method, of class SmallestMultiple.
+     */
+    @Test
+    public void testIsPrime() {
+        System.out.println("isPrime");
+        int x = 164;
+        boolean expResult = false;
+        boolean result = SmallestMultiple.isPrime(x);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of canBeDivided method, of class SmallestMultiple.
+     */
+    @Test
+    public void testCanBeDivided() {
+        System.out.println("canBeDivided");
+        int x = 40320;
+        int highestFactor = 8; 
+        boolean expResult = true;
+        boolean result = SmallestMultiple.canBeDivided(x, highestFactor);
+        assertEquals(expResult, result);
+    }
 }

@@ -14,19 +14,25 @@ public class SmallestMultiple {
         System.out.println("Poszukiwana liczba to: " + smallestMultiple(20));
     }
     
-    public static short highestPrime(short maxNum)
+    public static int smallestMultiple(int upperLimit)
     {
-        
-        for (short i=maxNum;i>=1;i--) {
-            boolean isPrime = true;
-            for (int j=i-1;j>1;j--)
+        int highestPrime = highestPrime((short)upperLimit);
+        int product = highestPrime * upperLimit;
+        for(int i = product ; ;i += product)
+        {
+            System.out.println("Sprawdzam liczbę: " + i);
+            if(canBeDivided(i,upperLimit))
             {
-                if(i%j == 0)
-                {
-                    isPrime = false;
-                }
+                return i;
             }
-            if(isPrime)
+        }
+    }
+    
+    public static short highestPrime(short maxNum)
+    {        
+        for (short i = maxNum ; i >= 1 ; i--) 
+        {
+            if(isPrime(i))
             {
                 return i;
             }
@@ -34,25 +40,27 @@ public class SmallestMultiple {
         return 0;
     }
     
-    public static int smallestMultiple(int upperLimit)
+    public static boolean isPrime(int x)
     {
-        int highestPrime = highestPrime((short)upperLimit);
-        int product = highestPrime*upperLimit;
-        for(int i=product;;i+=product)
+        for(int i = x-1 ; i > 1 ; i--)
         {
-            boolean canBeDivided = true;
-            System.out.println("Sprawdzam liczbę: " + i);
-            
-            for(int j=1;j<=upperLimit;++j)
+            if(x%i == 0)
             {
-                if(i % j != 0)
-                {
-                    canBeDivided = false;
-                    break;
-                }
+                return false;
             }
-            if(canBeDivided)
-                return i;
         }
-    }    
+        return true;
+    }
+    
+    public static boolean canBeDivided(int x,int highestFactor)
+    {
+        for(int i = highestFactor ; i > 1 ; i--)
+        {
+            if(x%i != 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -14,6 +14,20 @@ public class SmallestMultiple {
         System.out.println("Poszukiwana liczba to: " + smallestMultiple(20));
     }
     
+    //  Public : Compute the smallest number that can be divided by each of the numbers 
+    //  from 1 to given limit without any remainder.
+    //
+    //  upperLimit − the highest factor that has to divide the number without any reminder
+    //
+    //  Examples
+    //
+    //  smallestMultiple(4)
+    //  => 12
+    //
+    //  isPrime(10)
+    //  => 2520
+    //
+    //  Returns the smallest multiple of following numbers from 1 to N
     public static int smallestMultiple(int upperLimit)
     {
         int highestPrime = highestPrime((short)upperLimit);
